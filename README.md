@@ -1,6 +1,7 @@
 This document gives a brief description of the http endpoints available via the Plum API, and how to use them.
 
 #### Table of contents  
+* [Authentication](#authentication)
 * [The three types](#three-types)
 * [Environments](#environments)
 * [Group endpoints](#group-endpoints)
@@ -24,6 +25,19 @@ This document gives a brief description of the http endpoints available via the 
 * [Artifact endpoints](#artifact-endpoints)
     - [GET artifact](#get-artifact)
 
+
+<a name="authenticiation"/>
+# Authentication
+
+Access to the Plum API requires an authentication token.
+
+All calls below can be used if you pass the &auth parameter as in:
+
+'''
+http://api1.demo.plu.mx:8080/g/root/samples?pretty=true&auth=<your_key_here>
+'''
+
+Email us at team@plumanalytics.com to get your developer key.
 
 <a name="three-types"/>
 # The three types

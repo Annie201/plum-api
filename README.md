@@ -34,7 +34,7 @@ Access to the Plum API requires an authentication token.
 All calls below can be used if you pass the &auth parameter as in:
 
 ```
-http://api1.demo.plu.mx:8080/g/root/samples?pretty=true&auth=<your_key_here>
+https://api.plu.mx/g/root/samples?pretty=true&auth=<your_key_here>
 ```
 
 Email us at team@plumanalytics.com to get your developer key.
@@ -52,7 +52,7 @@ The api provides an HTTP interface with endpoints for manipulating these three t
 # Environments
 
 The Plum API can be accessed at the following environments:
-* demo - http://api1.demo.plu.mx:8080
+* demo - https://api.plu.mx
 
 <a name="group-endpoints"/>
 # Group endpoints
@@ -68,7 +68,7 @@ You can create or update a group using an HTTP PUT method at the `/g/` endpoint.
 
 Here is an example of creating a new group:
 ```
-curl -H "Content-Type: application/json" -XPUT 'http://api1.demo.plu.mx:8080/g/test-institute-1?pretty=true' -d '
+curl -H "Content-Type: application/json" -XPUT 'https://api.plu.mx/g/test-institute-1?pretty=true' -d '
 ```
 ```json
 {
@@ -95,7 +95,7 @@ Assuming all went well, the response should look like:
 
 Here is an example of updating the summary for the group added with the previous command:
 ```
-curl -H "Content-Type: application/json" -XPUT 'http://api1.demo.plu.mx:8080/g/test-institute-1?pretty=true' -d '
+curl -H "Content-Type: application/json" -XPUT 'https://api.plu.mx/g/test-institute-1?pretty=true' -d '
 ```
 ```json
 {
@@ -122,7 +122,7 @@ Assuming all went well, the response should look like:
 
 Here is an example of creating a new group nested under the group created above:
 ```
-curl -H "Content-Type: application/json" -XPUT 'http://api1.demo.plu.mx:8080/g/test-institute-1/test-department-1?pretty=true' -d '
+curl -H "Content-Type: application/json" -XPUT 'https://api.plu.mx/g/test-institute-1/test-department-1?pretty=true' -d '
 ```
 ```json
 {
@@ -150,7 +150,7 @@ Note that the `id` field is optional in the PUT body and is omitted in this exam
 
 If a nested group is created and it's parent groups do not exist, stubs will be generated for the parent groups. Here is an example of cascade creation using a child group with two ancestors that don't exist:
 ```
-curl -H "Content-Type: application/json" -XPUT 'http://api1.demo.plu.mx:8080/g/test-institute-2/test-department-2/test-lab-2?pretty=true' -d '
+curl -H "Content-Type: application/json" -XPUT 'https://api.plu.mx/g/test-institute-2/test-department-2/test-lab-2?pretty=true' -d '
 ```
 ```json
 {
@@ -183,7 +183,7 @@ You can retrieve a group using an HTTP GET method at the `/g/` endpoint. GET ret
 
 Assuming the data entered in the PUT section exists, you could enter the following command:
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/g/test-institute-1?pretty=true'
+curl -XGET 'https://api.plu.mx/g/test-institute-1?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -202,7 +202,7 @@ Assuming all went well, the response should look like:
 
 You could try and get a non-existant object using the following command:
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/g/this-doesnt-exist?pretty=true'
+curl -XGET 'https://api.plu.mx/g/this-doesnt-exist?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -231,7 +231,7 @@ The `_display` action fetches additional data that will be required to build a d
 Here is an example of retrieving test-lab-2 which shows the ancestors that are also retrieved:
 
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/g/test-institute-2/test-department-2/test-lab-2/_display?pretty=true'
+curl -XGET 'https://api.plu.mx/g/test-institute-2/test-department-2/test-lab-2/_display?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -302,7 +302,7 @@ The `_profile` action fetches additional data that will be required to build the
 Here is an example of retrieving test-lab-2 which shows the ancestors that are also retrieved:
 
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/g/test-institute-2/test-department-2/test-lab-2/_profile?pretty=true'
+curl -XGET 'https://api.plu.mx/g/test-institute-2/test-department-2/test-lab-2/_profile?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -332,14 +332,14 @@ Assuming all went well, the response should look like:
 
 The `_statistics` action fetches additional data that will be required to build the statistics portion of a display page for the current group. The additional data includes the aggregate counts of any articles that have the current group in their hierarchy. The `_statistics` action accepts the `filter` parameter which can contain a Lucene style string query ([see Lucene documentation](http://lucene.apache.org/core/3_6_1/queryparsersyntax.html)).
 
-e.g. `http://api1.demo.plu.mx:8080/g/test-institute-2/test-department-2/test-lab-2/_statistics?filter=usage.countType:VIEW_COUNT`
+e.g. `https://api.plu.mx/g/test-institute-2/test-department-2/test-lab-2/_statistics?filter=usage.countType:VIEW_COUNT`
 
 #### Example - using `_statistics` to retrieve test-lab-2
 
 Here is an example of retrieving test-lab-2 which shows the statistics that are also retrieved:
 
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/g/test-institute-2/test-department-2/test-lab-2/_statistics?pretty=true'
+curl -XGET 'https://api.plu.mx/g/test-institute-2/test-department-2/test-lab-2/_statistics?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -390,14 +390,14 @@ The `_artifacts` action fetches additional data that will be required to build t
 
 If both `offset` and `page` are specified `offset` will take precedence.
 
-e.g. `http://api1.demo.plu.mx:8080/g/test-institute-2/test-department-2/test-lab-2/_artifacts?filter=usage.countType:VIEW_COUNT&offset=0&size=10`
+e.g. `https://api.plu.mx/g/test-institute-2/test-department-2/test-lab-2/_artifacts?filter=usage.countType:VIEW_COUNT&offset=0&size=10`
 
 #### Example - using `_artifacts` to retrieve test-lab-2
 
 Here is an example of retrieving test-lab-2 which shows the documents that are also retrieved:
 
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/g/test-institute-2/test-department-2/test-lab-2/_artifacts?pretty=true'
+curl -XGET 'https://api.plu.mx/g/test-institute-2/test-department-2/test-lab-2/_artifacts?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -417,14 +417,14 @@ The `_groups` action fetches additional data that will be required to build the 
 
 If both `offset` and `page` are specified `offset` will take precedence.
 
-e.g. `http://api1.demo.plu.mx:8080/g/test-institute-2/_groups?offset=0&size=10`
+e.g. `https://api.plu.mx/g/test-institute-2/_groups?offset=0&size=10`
 
 #### Example - using `_groups` to retrieve test-institute-2
 
 Here is an example of retrieving test-institute-2 which shows the groups that are also retrieved:
 
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/g/test-institute-2/_groups?pretty=true'
+curl -XGET 'https://api.plu.mx/g/test-institute-2/_groups?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -449,14 +449,14 @@ The `_researchers` action fetches additional data that will be required to build
 
 If both `offset` and `page` are specified `offset` will take precedence.
 
-e.g. `http://api1.demo.plu.mx:8080/g/test-institute-2/test-department-2/test-lab-2/_researchers?offset=0&size=10`
+e.g. `https://api.plu.mx/g/test-institute-2/test-department-2/test-lab-2/_researchers?offset=0&size=10`
 
 #### Example - using `_researchers` to retrieve test-lab-2
 
 Here is an example of retrieving test-institute-2 which shows the researchers that are also retrieved:
 
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/g/test-institute-2/test-department-2/test-lab-2/_researchers?pretty=true'
+curl -XGET 'https://api.plu.mx/g/test-institute-2/test-department-2/test-lab-2/_researchers?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -475,7 +475,7 @@ You can remove a group using an HTTP DELETE method at the `/g/` endpoint.
 
 Assuming the data entered in the PUT section exists, you could enter the following command:
 ```
-curl -XDELETE 'http://api1.demo.plu.mx:8080/g/test-department-1?pretty=true'
+curl -XDELETE 'https://api.plu.mx/g/test-department-1?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -490,7 +490,7 @@ Assuming all went well, the response should look like:
 
 If a parent group has nested groups and the parent is removed using the HTTP DELETE method then all child groups of this parent will be removed. Child groups cannot exist without their ancestors because there is no way to find or navigate to them. Note that this does not remove any researchers or artifacts that may have the parent group as an ancestor. Researchers and artifacts may reference groups that do not exist, but they cannot be navigated to via the missing hierarchy. Here is an example of issuing a cascade delete:
 ```
-curl -XDELETE 'http://api1.demo.plu.mx:8080/g/test-institute-2?pretty=true'
+curl -XDELETE 'https://api.plu.mx/g/test-institute-2?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -516,7 +516,7 @@ You can create or update a researcher using an HTTP PUT method at the `/r/` endp
 
 Here is an example of creating a new researcher that is not associated with any groups:
 ```
-curl -H "Content-Type: application/json" -XPUT 'http://api1.demo.plu.mx:8080/r/test-researcher-1?pretty=true' -d '
+curl -H "Content-Type: application/json" -XPUT 'https://api.plu.mx/r/test-researcher-1?pretty=true' -d '
 ```
 ```json
 {         
@@ -552,7 +552,7 @@ Assuming all went well, the response should look like:
 
 Assuming the data from the previous PUT researcher command, here is an example of adding the researcher to a group:
 ```
-curl -H "Content-Type: application/json" -XPUT 'http://api1.demo.plu.mx:8080/r/test-researcher-1?pretty=true' -d '
+curl -H "Content-Type: application/json" -XPUT 'https://api.plu.mx/r/test-researcher-1?pretty=true' -d '
 ```
 ```json
 {
@@ -600,7 +600,7 @@ You can retrieve a researcher using an HTTP GET method at the `/r/` endpoint. GE
 
 Assuming the data entered in the PUT section exists, you could enter the following command:
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/r/test-researcher-1?pretty=true'
+curl -XGET 'https://api.plu.mx/r/test-researcher-1?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -629,7 +629,7 @@ Assuming all went well, the response should look like:
 
 You could try and get a non-existant object using the following command:
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/r/this-doesnt-exist?pretty=true'
+curl -XGET 'https://api.plu.mx/r/this-doesnt-exist?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -651,7 +651,7 @@ The GET method allows special actions to be performed besides the default action
 Here is an example of retrieving `test-researcher-1` which shows the parent groups that are also retrieved:
 
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/r/test-researcher-1/_display?pretty=true'
+curl -XGET 'https://api.plu.mx/r/test-researcher-1/_display?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -719,7 +719,7 @@ Notice that this returns more than a raw GET request for `test-researcher-1` whe
 You can retrieve a researcher via a specific group hierarchy that is in the researchers parent tree. Here is an example of retrieving `test-researcher-1` via one of it's ancestors -- `test-institute-1`:
 
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/r/test-institute-1/test-researcher-1/_display?pretty=true'
+curl -XGET 'https://api.plu.mx/r/test-institute-1/test-researcher-1/_display?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -783,7 +783,7 @@ You can remove a researcher using an HTTP DELETE method at the `/r/` endpoint.
 
 Assuming the data entered in the PUT section exists, you could enter the following command:
 ```
-curl -XDELETE 'http://api1.demo.plu.mx:8080/r/test-researcher-1?pretty=true'
+curl -XDELETE 'https://api.plu.mx/r/test-researcher-1?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json
@@ -808,7 +808,7 @@ You can retrieve an artifact using an HTTP GET method at the `/a/` endpoint. GET
 
 Assuming artifact `sK30+b2g-N` exists, you could enter the following command:
 ```
-curl -XGET 'http://api1.demo.plu.mx:8080/a/sK30+b2g-N?pretty=true'
+curl -XGET 'https://api.plu.mx/a/sK30+b2g-N?pretty=true'
 ```
 Assuming all went well, the response should look like:
 ```json

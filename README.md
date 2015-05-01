@@ -24,7 +24,7 @@ This document gives a brief description of the http endpoints available via the 
     - [DELETE researcher](#delete-researcher)
 * [Artifact endpoints](#artifact-endpoints)
     - [GET artifact](#get-artifact)
-
+* [Appendix: Metric Types](#metric-types)
 
 <a name="authenticiation"/>
 # Authentication
@@ -845,3 +845,54 @@ Assuming all went well, the response should look like:
   "ancestor" : [ "test-researcher-1" ]
 }
 ```
+
+<a name="metric-types"/>
+# Appendix: Metric Types
+
+      BOOKMARK_COUNT        => Bookmarks
+      FAVORITE_COUNT        => Favorites
+      FOLLOWER_COUNT        => Followers
+      FORK_COUNT            => Forks
+      GROUP_COUNT           => Groups
+      READER_COUNT          => Readers
+      SUBSCRIBER_COUNT      => Subscribers
+      WATCHER_COUNT         => Watchers
+      LIKE_COUNT            => Likes
+      PLUS_ONE_COUNT        => +1s
+      RATING_COUNT          => Ratings
+      RECOMMENDATION_COUNT  => Recommendations
+      SCORE_COUNT           => Score
+      TWEET_COUNT           => Tweets
+      SHARE_COUNT           => Shares
+      ABSTRACT_VIEWS        => Abstract Views
+      COLLABORATOR_COUNT    => Collaborators
+      DOWNLOAD_COUNT        => Downloads
+      FIGURE_VIEWS          => Figure Views
+      FULL_TEXT_VIEWS       => Full Text Views
+      HOLDINGS_COUNT        => Holdings
+      HTML_VIEWS            => HTML Views
+      XML_VIEWS             => XML Views
+      LINK_CLICK_COUNT      => Clicks
+      PDF_DOWNLOADS         => PDF Downloads
+      PDF_VIEWS             => PDF Views
+      PLAY_COUNT            => Counts
+      SUPPORTING_DATA_VIEWS => Data Views
+      UNIQUE_IP_VIEWS       => Unique IP Views
+      VIEW_COUNT            => Views
+      COMMENT_COUNT         => Comments
+      FORUM_TOPIC_COUNT     => Forum Topics
+      GIST_COUNT            => Gists
+      LINK_COUNT            => Links
+      REVIEW_COUNT          => Reviews
+      BLOG_COUNT            => Economics Blog Mentions
+      ALL_BLOG_COUNT        => Blog Mentions
+      CITED_BY_COUNT        => Citations
+      CITED_BY_COUNT_NC     => Citations
+      EPUB_DOWNLOAD_COUNT   => ePub Downloads
+      EMAILS                => Emails
+      EXPORTS               => Exports
+      PRINT_OUTS            => Print-outs
+      SAVES                 => Saves
+      LINK_OUTS             => Link-outs
+      SAMPLE_DOWNLOADS      => Sample Downloads
+      EXPORTS_SAVES         => Exports-Saves

@@ -34,7 +34,7 @@ Access to the Plum API requires an authentication token.
 All calls below can be used if you pass the &auth parameter as in:
 
 ```
-https://api.plu.mx/g/root/samples?pretty=true&auth=<your_key_here>
+https://api.plu.mx/g/<your_group_here>?pretty=true&auth=<your_key_here>
 ```
 
 Email us at team@plumanalytics.com to get your developer key.
